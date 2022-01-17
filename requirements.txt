@@ -112,7 +112,7 @@ pandas==0.25.3
 partd==1.2.0
 pathspec==0.9.0
 patsy==0.5.2
-Pillow==8.3.2
+Pillow==9.0.0
 platformdirs==2.4.0
 pmdarima==1.1.1
 portalocker==1.7.1
