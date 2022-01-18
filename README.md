@@ -22,3 +22,7 @@
   upon the test set inputs, and provide some evaluation metrics based on the run.
 - Additional/optional scripts include the ```publish_pipline.py``` and the ```trigger_pipeline.py``` which
   help with formalizing the pipeline as a repeatable process.
+  
+## Parking Lot (to resolve)
+- FileDatasetFactory.upload_directory
+- Lint of all files
