@@ -104,7 +104,7 @@ def main():
         outputs=[metrics_data,model_data],    
         enable_default_model_output=True,
         enable_default_metrics_output=True,
-        allow_reuse=True
+        allow_reuse=True #if False, will trigger a new run, else re-use the existing output
         )
 
     # Register the model

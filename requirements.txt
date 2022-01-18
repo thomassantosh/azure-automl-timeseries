@@ -51,7 +51,7 @@ configparser==3.7.4
 contextlib2==21.6.0
 cryptography==3.4.8
 Cython==0.29.26
-dask==2.30.0
+dask>=2021.10.0
 databricks-cli==0.16.2
 dataclasses==0.6
 dill==0.3.4
@@ -80,7 +80,7 @@ isodate==0.6.1
 isort==5.10.1
 itsdangerous==2.0.1
 jeepney==0.7.1
-Jinja2==2.11.2
+Jinja2>=2.11.3
 jmespath==0.10.0
 joblib==0.14.1
 json-logging-py==0.2
@@ -102,7 +102,7 @@ msrestazure==0.6.4
 ndg-httpsclient==0.5.1
 nimbusml==1.8.0
 numba==0.53.1
-numpy==1.18.5
+numpy>=1.21
 oauthlib==3.1.1
 onnx==1.7.0
 onnxconverter-common==1.6.0
