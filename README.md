@@ -1,7 +1,7 @@
 # Intent
 - Showcase Azure Machine Learning AutoML time series capabilities for prediction of energy consumption.
-- While there is a larger dataset for 2020, sourced from [here](http://mis.nyiso.com/public/P-58Blist.htm),
-  for demo purposes, this focuses on just the NYC dataset for the month of December 2020.
+- Dataset is sourced from [here](http://mis.nyiso.com/public/P-58Blist.htm), and contains daily energy consumption
+  data for 2020 across different East Coast counties and districts.
 - This does not extend into deploying the model through a web service or a managed online endpoint assuming
   some of these use cases are generally internal-facing, and require more investment in training and
   optimizing the model for internal use.
@@ -22,4 +22,3 @@
   upon the test set inputs, and provide some evaluation metrics based on the run.
 - Additional/optional scripts include the ```publish_pipline.py``` and the ```trigger_pipeline.py``` which
   help with formalizing the pipeline as a repeatable process.
-
