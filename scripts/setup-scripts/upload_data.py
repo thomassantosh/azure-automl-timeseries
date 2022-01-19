@@ -1,6 +1,7 @@
 """Script to upload CSV files"""
 import os
 from pathlib import Path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from authentication import ws
 
 def data_filepaths(data_folder=None):
