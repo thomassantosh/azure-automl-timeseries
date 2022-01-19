@@ -39,7 +39,7 @@ def main():
 
     pipeline_run = PipelineRun(experiment=exp, run_id = run_id)
 
-    #Publish the completed, latest pipeline
+    #Publish the latest completed pipeline
     try:
         pipeline_run.publish_pipeline(
                 name='forecasting_energy_' + str(int(time.time())),

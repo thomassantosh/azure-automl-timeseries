@@ -15,10 +15,14 @@ def load_test_dataset(dataset_name=None, target_column=None):
     y_test_values = y_test.pop(target_column).values
     return y_test, y_test_values
 
-# Get the best 
 
 # Predict values from test dataset inputs
-def predict_values(model=None, y_test=None, y_test_values=None, target_column=None):
+def predict_values(
+        model=None, 
+        y_test=None, 
+        y_test_values=None, 
+        target_column=None
+        ):
     quantiles = [0.025, 0.5, 0.95]
     predicted_column_name = 'predicted'
     PI = 'prediction_interval'
@@ -34,12 +38,18 @@ def predict_values(model=None, y_test=None, y_test_values=None, target_column=No
     clean.to_csv('prediction.csv', header=True, index=False)
 
 def main():
-    model_name = 'secondbestModel'
-    version = '1'
-    dataset_name = 'NYC-testset-Dec2020'
-    target_column = 'Load'
+
+    # Specify the model, and the test data to use
+    model_name, version = ('secondbestModel','1')
+    dataset_name, target_column = ('NYC-testset-Dec2020', 'Load')
+
+    # Download and load the model
     model = load_best_model(model_name=model_name, version=version)
+
+    # Load the test dataset
     y_test, y_test_values = load_test_dataset(dataset_name=dataset_name, target_column=target_column)
+
+    # Predict using the model
     predict_values(model=model, y_test=y_test, y_test_values=y_test_values, target_column=target_column)
 
 if __name__ == "__main__":
