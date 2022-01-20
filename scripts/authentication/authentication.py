@@ -5,7 +5,7 @@ from azureml.core import Workspace
 from azureml.core.authentication import ServicePrincipalAuthentication
 
 # Load env variables
-env_var=load_dotenv('./variables.env')
+env_var=load_dotenv('variables.env')
 
 auth_dict = {
         "client_id":os.environ['CLIENT_ID'],

@@ -2,7 +2,7 @@ install:
 	pip install --upgrade pip && pip install -r requirements.txt
 
 setup_infra:
-	./scripts/setup-scripts/create-workspace-sprbac.sh
+	./scripts/setup/create-workspace-sprbac.sh
 
 lint:
 	pylint --disable=R,C,W1203,W0702 upload_data.py

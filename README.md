@@ -7,6 +7,7 @@
   optimizing the model for internal use.
 
 # Steps
+- To start, create a `sub.env` file with `SUB=<your subscription id>` in the root of the folder.
 - A Makefile is in the ```scripts``` folder and provides an overall flow to the necessary steps.
 - Provisioning of all infrastructure happens through the ```create-workspace-sprbac.sh``` shell script. This
   creates a number of environment files (config.json, variables.env) to allow the service principal
