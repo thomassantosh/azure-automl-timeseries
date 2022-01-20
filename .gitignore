@@ -1,5 +1,6 @@
 *.json
-*.env
+variables.env
+sub.env
 *.pyc
 *.log
 *.DS_Store

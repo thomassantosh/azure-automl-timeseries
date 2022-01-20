@@ -84,6 +84,7 @@ def main():
         "compute_target":cpu_cluster,
         "max_concurrent_iterations": 4,
         #"allowed_models":['Prophet'],
+        "allowed_models":['Naive'],
         "blocked_models":['ExtremeRandomTrees', 'AutoArima', 'Prophet'],
         #"verbosity": logging.INFO,
         "training_data":ds,
@@ -98,21 +99,22 @@ def main():
 
     automl_config = AutoMLConfig(**automl_settings)
 
-    train_step = AutoMLStep(name='Time_Series_Forecasting',    
-        automl_config=automl_config,    
-        passthru_automl_config=False,    
-        outputs=[metrics_data,model_data],    
-        enable_default_model_output=True,
-        enable_default_metrics_output=True,
-        allow_reuse=True #if False, will trigger a new run, else re-use the existing output
+    train_step = AutoMLStep(
+            name='AutoML for time series forecast',
+            automl_config=automl_config,    
+            passthru_automl_config=False,    
+            outputs=[metrics_data,model_data],    
+            enable_default_model_output=True,
+            enable_default_metrics_output=True,
+            allow_reuse=True #if False, will trigger a new run, else re-use the existing output
         )
 
     # Register the model
     model_name = PipelineParameter("model_name", default_value="secondbestModel")
     register_model_step = PythonScriptStep(
             source_directory='.',
-            script_name="register_model.py",
-            name="register_model",
+            script_name="./scripts/pipeline/register_model.py",
+            name="Register the best model",
             arguments=[
                 "--model_name", model_name,
                 "--model_path", model_data
