@@ -1,5 +1,6 @@
 # Create the training pipeline
 import sys
+import subprocess
 import os.path
 import time
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
@@ -20,7 +21,28 @@ from azureml.automl.core.featurization.featurizationconfig import FeaturizationC
 from azureml.core.experiment import Experiment
 logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
+
+def file_check(filename=None, parent_file=None):
+    """Check for existence of a file.
+    If exists, delete it. If does not exist, create it.
+    This is necessary since the pipeline script loads the directory of code into AML.
+    """
+    if os.path.isfile(filename) is True:
+        return_value = os.system("rm " + str(filename))
+    elif os.path.isfile(filename) is False:
+        return_value = os.system("cp " + str(parent_file) + " " + str(filename))
+    
+    # Output value
+    if return_value == 0:
+        print("Operation completed successfully.")
+    else:
+        print("Operation failed.")
+
 def main():
+
+    # Create the sample file in the root (temporarily)
+    # First time, will create it
+    file_check(filename = 'sample.env', parent_file = 'variables.env')
 
     # Setup run configuration
     docker_config = DockerConfiguration(use_docker=True)
@@ -129,6 +151,9 @@ def main():
     pipeline = Pipeline(ws, [train_step, register_model_step])
     remote_run = experiment.submit(pipeline, show_output=True, wait_post_processing=True)
     remote_run.wait_for_completion()
+
+    # Delete the sample.env file once the pipeline is done
+    file_check(filename = 'sample.env', parent_file = 'variables.env')
 
 # Setup experiment and trigger run
 if __name__ == "__main__":
