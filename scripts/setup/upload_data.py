@@ -3,7 +3,7 @@ import sys
 import os
 from pathlib import Path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
-from scripts.authentication.authentication import ws
+from scripts.authentication.service_principal import ws
 
 def data_filepaths(data_folder=None):
     """Get full paths to discrete data files"""
@@ -34,7 +34,7 @@ def upload_files_from_local(
 
 def main():
     """Set target locations, retrieve default blob store and upload files"""
-    local_data_folder = './../input-data'
+    local_data_folder = './input-data'
     target_def_blob_store_path = '/blob-input-data/'
     def_blob_store = ws.get_default_datastore()
 

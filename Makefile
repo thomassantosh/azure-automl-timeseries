@@ -11,8 +11,8 @@ lint:
 
 setup_run:
 	python ./scripts/setup/clusters.py
-	#python ./setup-scripts/upload_data.py
-	#python ./setup-scripts/datasets.py
+	python ./scripts/setup/upload_data.py
+	python ./scripts/setup/datasets.py
 
 create_pipeline:
 	python create_pipeline.py

@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..
 import os
 from datetime import datetime
 import pandas as pd
-from scripts.authentication.authentication import ws
+from scripts.authentication.service_principal import ws
 from azureml.core import Dataset
 from azureml.data.dataset_factory import DataType
 import logging
