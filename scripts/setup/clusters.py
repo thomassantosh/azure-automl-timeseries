@@ -1,7 +1,7 @@
 import sys
 import os.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
-from scripts.authentication.authentication import ws
+from scripts.authentication.service_principal import ws
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 import logging
@@ -15,7 +15,7 @@ def create_compute_cluster(workspace=None, compute_name=None):
     except ComputeTargetException:
         # To use a different region for the compute, add a location='<region>' parameter
         compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                min_nodes=1,
+                min_nodes=0,
                 max_nodes=5)
         cpu_cluster = ComputeTarget.create(workspace, compute_name, compute_config)
         logging.info(f'Triggered the creation of {compute_name} cluster')

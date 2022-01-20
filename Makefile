@@ -10,7 +10,7 @@ lint:
 	pylint --disable=R,C,W1203,W0702 clusters.py
 
 setup_run:
-	python ./scripts/setup-scripts/clusters.py
+	python ./scripts/setup/clusters.py
 	#python ./setup-scripts/upload_data.py
 	#python ./setup-scripts/datasets.py
 

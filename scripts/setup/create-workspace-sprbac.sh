@@ -40,7 +40,7 @@ credentials=$(az ad sp create-for-rbac --name "sp$resourcegroup" \
 
 # Create config_file in specific format
 printf "${grn}WRITING OUT CONFIG_FILE VARIABLES...${end}\n"
-configFile='./../../config.json'
+configFile='config.json'
 printf "{\n" > $configFile
 printf "\t \"subscription_id\":\"$sub_id\", \n">> $configFile
 printf "\t \"resource_group\":\"$resourcegroup\", \n">> $configFile
@@ -58,7 +58,7 @@ rm $credFile
 
 # Create variables file
 printf "${grn}WRITING OUT SERVICE PRINCIPAL VARIABLES...${end}\n"
-env_variable_file='./../../variables.env'
+env_variable_file='variables.env'
 printf "CLIENT_ID=$clientID \n" > $env_variable_file
 printf "CLIENT_SECRET=$clientSecret \n" >> $env_variable_file
 printf "TENANT_ID=$tenantID \n" >> $env_variable_file
