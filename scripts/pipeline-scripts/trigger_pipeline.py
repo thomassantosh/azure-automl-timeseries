@@ -1,7 +1,10 @@
 """Trigger the latest published pipeline"""
+import sys
+import os
 import logging
 from azureml.pipeline.core import PublishedPipeline
-from authentication import ws
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
+from scripts.authentication.authentication import ws
 logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 def main():

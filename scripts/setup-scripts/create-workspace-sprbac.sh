@@ -8,7 +8,7 @@ SECONDS=0
 printf "${grn}STARTING CREATION OF WORKSPACE AND AML INFRA RESOURCES...${end}\n"
 
 # Source subscription ID, and prep config file
-source ./../authentication/sub.env
+source sub.env
 sub_id=$SUB_ID
 
 # Set the default subscription 

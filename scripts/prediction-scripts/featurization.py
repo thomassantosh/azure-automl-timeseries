@@ -1,5 +1,8 @@
 # Publish the latest pipeline
-from authentication import ws
+import sys
+import os.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
+from scripts.authentication.authentication import ws
 from azureml.core.experiment import Experiment
 from azureml.core import Run
 from azureml.pipeline.core import PipelineRun

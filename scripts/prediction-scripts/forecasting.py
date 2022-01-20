@@ -1,7 +1,10 @@
 from azureml.core.model import Model
 from azureml.core import Run, Dataset
 import joblib
-from authentication import ws
+import sys
+import os.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
+from scripts.authentication.authentication import ws
 
 def load_best_model(model_name=None, version=None):
     final_model = Model(workspace=ws,name=model_name,version=version)

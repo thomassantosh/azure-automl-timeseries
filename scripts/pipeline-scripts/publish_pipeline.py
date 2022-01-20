@@ -1,9 +1,12 @@
 # Publish the latest pipeline
+import sys
+import os
 import logging, time
 from azureml.core.experiment import Experiment
 from azureml.pipeline.core import PipelineRun
 import pandas as pd
-from authentication import ws
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
+from scripts.authentication.authentication import ws
 logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 # Get pipeline runs from experiment

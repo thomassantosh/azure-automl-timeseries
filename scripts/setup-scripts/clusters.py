@@ -1,8 +1,7 @@
 import sys
 import os.path
-#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
-sys.path.append('./../authentication/')
-from authentication import ws
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
+from scripts.authentication.authentication import ws
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 import logging

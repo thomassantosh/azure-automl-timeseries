@@ -2,10 +2,10 @@
 import sys
 import os.path
 import time
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
+from scripts.authentication.authentication import ws
 import pandas as pd
 import logging
-from authentication import ws
 from azureml.core import Run, Dataset
 from azureml.core.compute import ComputeTarget
 from azureml.train.automl import AutoMLConfig
