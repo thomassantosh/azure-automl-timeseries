@@ -15,7 +15,7 @@ setup_run:
 	python ./scripts/setup/datasets.py
 
 create_pipeline:
-	python create_pipeline.py
+	python ./scripts/pipeline/create_pipeline.py
 
 evaluation:
 	python featurization.py

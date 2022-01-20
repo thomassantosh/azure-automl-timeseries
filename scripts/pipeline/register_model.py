@@ -2,7 +2,7 @@ import argparse
 import sys
 import os.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
-from scripts.authentication.authentication import ws
+from scripts.authentication.service_principal import ws
 from azureml.core.model import Model
 from azureml.core import Dataset
 import logging

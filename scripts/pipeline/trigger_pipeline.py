@@ -4,7 +4,7 @@ import os
 import logging
 from azureml.pipeline.core import PublishedPipeline
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
-from scripts.authentication.authentication import ws
+from scripts.authentication.service_principal import ws
 logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 def main():

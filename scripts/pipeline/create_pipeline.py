@@ -3,7 +3,7 @@ import sys
 import os.path
 import time
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
-from scripts.authentication.authentication import ws
+from scripts.authentication.service_principal import ws
 import pandas as pd
 import logging
 from azureml.core import Run, Dataset
