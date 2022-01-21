@@ -5,9 +5,9 @@ setup_infra:
 	./scripts/setup/create-workspace-sprbac.sh
 
 lint:
-	pylint --disable=R,C,W1203,W0702 upload_data.py
-	pylint --disable=R,C,W1203,W0702 datasets.py
-	pylint --disable=R,C,W1203,W0702 clusters.py
+	pylint --disable=R,C,W1203,W0702 ./scripts/setup/upload_data.py
+	#pylint --disable=R,C,W1203,W0702 datasets.py
+	#pylint --disable=R,C,W1203,W0702 clusters.py
 
 setup_run:
 	python ./scripts/setup/clusters.py
