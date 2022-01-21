@@ -11,22 +11,22 @@ lint:
 
 setup_run:
 	python ./scripts/setup/clusters.py
-	#python ./scripts/setup/upload_data.py
-	#python ./scripts/setup/datasets.py
+	python ./scripts/setup/upload_data.py
+	python ./scripts/setup/datasets.py
 
 create_pipeline:
 	python ./scripts/pipeline/create_pipeline.py
 
-evaluation:
-	python featurization.py
-	python forecasting.py
-	python metric_evaluation.py
-
 publish_pipeline:
-	python publish_pipeline.py
+	python ./scripts/pipeline/publish_pipeline.py
 
 trigger_pipeline:
-	python trigger_pipeline.py
+	python ./scripts/pipeline/trigger_pipeline.py
+
+evaluation:
+	#python ./scripts/prediction/featurization.py
+	#python ./scripts/prediction/forecasting.py
+	python ./scripts/prediction/metric_evaluation.py
 
 all: install setup_infra setup_run create_pipeline evaluation
 run: create_pipeline evaluation

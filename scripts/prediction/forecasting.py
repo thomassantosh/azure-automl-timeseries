@@ -4,12 +4,12 @@ import joblib
 import sys
 import os.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
-from scripts.authentication.authentication import ws
+from scripts.authentication.service_principal import ws
 
 def load_best_model(model_name=None, version=None):
     final_model = Model(workspace=ws,name=model_name,version=version)
-    final_model.download('./sample/', exist_ok=True)
-    model = joblib.load('./sample/best_model_data')
+    final_model.download('./model/', exist_ok=True)
+    model = joblib.load('./model/best_model_data')
     return model
 
 def load_test_dataset(dataset_name=None, target_column=None):
@@ -42,7 +42,7 @@ def predict_values(
 
 def main():
 
-    # Specify the model, and the test data to use
+    # Specify the specific registered model, and the test data to use
     model_name, version = ('secondbestModel','1')
     dataset_name, target_column = ('NYC-testset-Dec2020', 'Load')
 

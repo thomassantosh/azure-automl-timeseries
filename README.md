@@ -7,6 +7,7 @@
   optimizing the model for internal use.
 
 # Steps
+- Python version: `python=3.7`
 - To start, create a `sub.env` file with `SUB=<your subscription id>` in the root of the folder.
 - A Makefile is in the ```scripts``` folder and provides an overall flow to the necessary steps.
 - Provisioning of all infrastructure happens through the ```create-workspace-sprbac.sh``` shell script. This
@@ -24,6 +25,6 @@
 - Additional/optional scripts include the ```publish_pipline.py``` and the ```trigger_pipeline.py``` which
   help with formalizing the pipeline as a repeatable process.
   
-## Parking Lot (to resolve)
-- FileDatasetFactory.upload_directory
-- Lint of all files
+## Final Prediction
+- Final prediction view:
+![prediction](./imgs/final_result.png)
