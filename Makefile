@@ -24,8 +24,8 @@ trigger_pipeline:
 	python ./scripts/pipeline/trigger_pipeline.py
 
 evaluation:
-	#python ./scripts/prediction/featurization.py
-	#python ./scripts/prediction/forecasting.py
+	python ./scripts/prediction/featurization.py
+	python ./scripts/prediction/forecasting.py
 	python ./scripts/prediction/metric_evaluation.py
 
 all: install setup_infra setup_run create_pipeline evaluation

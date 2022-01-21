@@ -38,7 +38,7 @@ def predict_values(
     y_test[PI] = pred_quantiles[PI]
     y_test[predicted_column_name] = pred_quantiles[0.5]
     clean = y_test[y_test[[target_column,predicted_column_name]].notnull().all(axis=1)]
-    clean.to_csv('prediction.csv', header=True, index=False)
+    clean.to_csv('./model/prediction.csv', header=True, index=False)
 
 def main():
 
