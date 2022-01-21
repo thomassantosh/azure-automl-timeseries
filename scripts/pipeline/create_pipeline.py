@@ -1,17 +1,14 @@
 # Create the training pipeline
 import sys
-import subprocess
 import os.path
-import time
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..')))
 from scripts.authentication.service_principal import ws
-import pandas as pd
 import logging
-from azureml.core import Run, Dataset
+from azureml.core import Dataset
 from azureml.core.compute import ComputeTarget
 from azureml.train.automl import AutoMLConfig
 from azureml.pipeline.steps import AutoMLStep, PythonScriptStep
-from azureml.train.automl.run import AutoMLRun
+#from azureml.train.automl.run import AutoMLRun
 from azureml.core.runconfig import RunConfiguration, DEFAULT_CPU_IMAGE, DockerConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.pipeline.core import Pipeline, PipelineData, TrainingOutput

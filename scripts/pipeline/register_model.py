@@ -23,7 +23,7 @@ def main():
     prepped_data = Dataset.get_by_name(workspace=ws,name='NYC-trainingset-Dec2020')
 
     # Get best model
-    model = Model.register(
+    _ = Model.register(
             workspace=ws, 
             model_path=args.model_path, 
             model_name=args.model_name,

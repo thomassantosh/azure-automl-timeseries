@@ -12,8 +12,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s:%(levelname)s:%(mess
 # Get pipeline runs from experiment
 def experiment_details(sample_exp_name=None):
     collection_dict={}
-    experiment_details = sample_exp_name.list(ws)
-    for exp in experiment_details:
+    exp_details = sample_exp_name.list(ws)
+    for exp in exp_details:
         get_run_details = exp.get_runs()
         for j,v in enumerate(get_run_details):
             parent_run_details = v.get_details()
