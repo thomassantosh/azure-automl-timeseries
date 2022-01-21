@@ -106,7 +106,6 @@ def main():
         "compute_target":cpu_cluster,
         "max_concurrent_iterations": 4,
         #"allowed_models":['Prophet'],
-        "allowed_models":['Naive'],
         "blocked_models":['ExtremeRandomTrees', 'AutoArima', 'Prophet'],
         #"verbosity": logging.INFO,
         "training_data":ds,
