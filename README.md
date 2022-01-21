@@ -27,4 +27,4 @@
   
 ## Final Prediction
 - Final prediction view:
-![prediction](./model/final_result.png)
+  ![prediction](./model/final_result.png)
