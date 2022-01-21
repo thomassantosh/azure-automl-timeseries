@@ -1,29 +1,22 @@
 # Intent
-- Showcase Azure Machine Learning AutoML time series capabilities for prediction of energy consumption.
+- Showcase Azure Machine Learning AutoML time series capabilities.
 - Dataset is sourced from [here](http://mis.nyiso.com/public/P-58Blist.htm), and contains daily energy consumption
   data for 2020 across different East Coast counties and districts.
-- This does not extend into deploying the model through a web service or a managed online endpoint assuming
-  some of these use cases are generally internal-facing, and require more investment in training and
-  optimizing the model for internal use.
+- These scripts do not extend into deploying the model through a web service or managed online endpoint. This
+  is geared to understanding the workflows around training and prediction through the Python SDK.
 
-# Steps
+# Notes
 - Python version: `python=3.7`
-- To start, create a `sub.env` file with `SUB=<your subscription id>` in the root of the folder.
-- A Makefile is in the ```scripts``` folder and provides an overall flow to the necessary steps.
-- Provisioning of all infrastructure happens through the ```create-workspace-sprbac.sh``` shell script. This
-  creates a number of environment files (config.json, variables.env) to allow the service principal
-  authentication to work. Before running this file, make sure you have a file called ```sub.env``` which
-  contains your subscription id in this format: ```SUB_ID=<your subscription id>```.
-- The ```setup_run``` in the Makefile highlights scripts to provision the cluster, upload the dataset from the
-  './input-data' folder, and setup the right tabular datasets in the workspace for execution. AutoML runs
-  require a tabular dataset for execution.
-- While the AutoML run could just be run from a singular script, the ```create-pipeline.py``` script creates a pipeline
-  with the training dataset as the input, an AutoML training Run, and a final step to register the best model.
-- Once this completes, using the best model with the test set is the next objective. This is accomplished by running the
-  Makefile, with ```make evaluation``` which will output the featurization summary, forecast the values based
-  upon the test set inputs, and provide some evaluation metrics based on the run.
-- Additional/optional scripts include the ```publish_pipline.py``` and the ```trigger_pipeline.py``` which
-  help with formalizing the pipeline as a repeatable process.
+- A pre-condition is to specify a `sub.env` file with `SUB=<your subscription id>` in the root of the folder.
+- A Makefile shows the steps to create the infrastructure, run the pipeline and then use the best model to
+  generate predictions.
+- Though the `requirements.txt` exists to install all the needed libraries, the various stages of requiring
+  various installs are shown below:
+	- `pip install azureml-core` and `pip install python-dotenv` (before running `clusters.py`)
+	- `pip install pandas` and `pip install azureml-dataset-runtime` (before running `datasets.py`)
+	- `pip install azureml.train`, `pip install azureml.train.automl` and `pip install azureml.pipeline` (before running
+	  `create_pipeline.py`)
+	- `pip install matplotlib` (before running `metric_evaluation.py`)
   
 ## Final Prediction
 ![prediction](./model/final_result.png)
