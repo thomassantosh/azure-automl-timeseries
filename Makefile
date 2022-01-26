@@ -4,6 +4,11 @@ install:
 setup_infra:
 	./scripts/setup/create-workspace-sprbac.sh
 
+setup_run:
+	python ./scripts/setup/clusters.py
+	python ./scripts/setup/upload_data.py
+	python ./scripts/setup/datasets.py
+
 lint:
 	pylint --disable=R,C,W1203,W0702,W0703,E0110 ./scripts/setup/upload_data.py
 	pylint --disable=R,C,W1203,W0702,W0703,E0110 ./scripts/setup/datasets.py
@@ -15,11 +20,6 @@ lint:
 	pylint --disable=R,C,W1203,W0702,W0703,E0110 ./scripts/prediction/featurization.py
 	pylint --disable=R,C,W1203,W0702,W0703,E0110 ./scripts/prediction/forecasting.py
 	pylint --disable=R,C,W1203,W0702,W0703,E0110 ./scripts/prediction/metric_evaluation.py
-
-setup_run:
-	python ./scripts/setup/clusters.py
-	python ./scripts/setup/upload_data.py
-	python ./scripts/setup/datasets.py
 
 create_pipeline:
 	python ./scripts/pipeline/create_pipeline.py
