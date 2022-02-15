@@ -3,6 +3,8 @@
 grn=$'\e[1;32m'
 end=$'\e[0m'
 
+set -e
+
 # Start of script
 SECONDS=0
 printf "${grn}STARTING CREATION OF WORKSPACE AND AML INFRA RESOURCES...${end}\n"
@@ -15,7 +17,7 @@ sub_id=$SUB_ID
 az account set -s $sub_id
 
 # Source unique name for RG, workspace creation
-unique_name='timeseries'
+unique_name='ts'
 number=$[ ( $RANDOM % 10000 ) + 1 ]
 resourcegroup=$unique_name$number
 workspacename=$unique_name$number'workspace'
@@ -28,7 +30,7 @@ printf "Result of resource group create:\n $rg_create \n"
 
 # Create workspace through CLI
 printf "${grn}STARTING CREATION OF AML WORKSPACE...${end}\n"
-ws_result=$(az ml workspace create -w $workspacename -g $resourcegroup)
+ws_result=$(az ml workspace create -n $workspacename -g $resourcegroup)
 printf "Result of workspace create:\n $ws_result \n"
 
 # Generate service principal credentials
